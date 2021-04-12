@@ -17,7 +17,7 @@ class Oprava(Base):
     popis = Column(Text)
     opravar = Column(String, ForeignKey('opravari.id'))
     time = Column(TIMESTAMP)
-    model = Column(String, ForeignKey('modely.id'))
+    model = Column(Integer, ForeignKey('modely.id'))
     cena = Column(Integer)
 
 
@@ -26,15 +26,17 @@ class Opravar(Base):
 
     id = Column(Integer, primary_key=True)
     jmeno = Column(String(length=100),nullable=False)
-    zamereni = Column(Enum('Apple', 'Samsung', 'Xiaomi', 'Huawei', ))
+    zamereni = Column(Enum('Apple', 'Samsung', 'Xiaomi', 'Huawei'))
     vyplata = Column(Integer)
     fotka = Column(BLOB) 
+    
 
 class Model(Base):
     __tablename__ = 'modely'
 
     id = Column(Integer, primary_key=True)
-    nazev = Column(String(30), nullable=False)
+    nazev = Column(String(100), nullable=False)
+    
 
 
 class Database:
@@ -43,7 +45,7 @@ class Database:
         MYSQL: 'mysql+mysqlconnector://{USERNAME}:{PASSWORD}@localhost/{DB}'
     }
 
-    def __init__(self, dbtype='sqlite', username='', password='', dbname='../places.db'):
+    def __init__(self, dbtype='sqlite', username='', password='', dbname='opravy'):
         dbtype = dbtype.lower()
 
         if dbtype in self.DB_ENGINE.keys():
@@ -155,5 +157,3 @@ class Database:
             return True
         except:
             return False
-
-db = Database(dbtype='sqlite', dbname='opravy.db')

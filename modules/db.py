@@ -36,6 +36,7 @@ class Model(Base):
 
     id = Column(Integer, primary_key=True)
     nazev = Column(String(100), nullable=False)
+    znacka = Column(String(100), nullable=False)
     
 
 

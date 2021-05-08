@@ -1,0 +1,49 @@
+#:import math.ceil math
+
+BoxLayout:
+    orientation:'vertical'
+
+    MDToolbar:
+        title: 'Osobní databáze'
+        md_bg_color: .8, .2, .2, 1
+        specific_text_color: 1, 1, 1, 1
+
+    MDBottomNavigation:
+        id: navigation
+        panel_color: .8, .8, .4, 1
+
+        MDBottomNavigationItem:
+            name: 'screen 1'
+            text: 'Osobní databáze'
+            icon: 'card-bulleted'
+
+            DatabaseScreen:
+
+<OpravarContent>:
+    orientation: 'vertical'
+    size_hint_x: 1
+    size_hint_y: None
+    height: "100dp"
+
+    MDTextField:
+        id: opravar_jmeno
+        text: 'jméno opravare'
+        pos_hint: {'center_x': .5, 'center_y': .9}
+
+    MDDropDownItem:
+        id: opravar_item
+        pos_hint: {'center_x': .5, 'center_y': .7}
+        size_hint_x: 1
+        text: 'Oprava'
+        on_release: self.parent.menu_zamereni.open()
+
+<OpravaContent>:
+    orientation: 'vertical'
+    size_hint_x: 1
+    size_hint_y: None
+    height: "100dp"
+
+    MDTextField:
+        id: oprava_popis
+        text: 'Popis opravy'
+        pos_hint: {'center_x': .5, 'center_y': .7}

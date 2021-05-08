@@ -1,4 +1,4 @@
-from db import *
+from modules.db import *
 
 db = Database(dbtype='sqlite', username='root', password='', dbname='opravy.db')
 
@@ -10,6 +10,7 @@ db.create_oprava(oprava)
 opravar = Opravar()
 opravar.jmeno = "Bořek Opravar"
 opravar.vyplata = 21000
+opravar.zamereni = "Apple"
 db.create_opravar(opravar)
 
 model = Model()

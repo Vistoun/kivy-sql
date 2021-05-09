@@ -4,8 +4,8 @@ BoxLayout:
     orientation:'vertical'
 
     MDToolbar:
-        title: 'Osobní databáze'
-        md_bg_color: .8, .2, .2, 1
+        title: 'Databáze oprav'
+        md_bg_color: .0, .2, .1, 1
         specific_text_color: 1, 1, 1, 1
 
     MDBottomNavigation:
@@ -19,24 +19,6 @@ BoxLayout:
 
             DatabaseScreen:
 
-<OpravarContent>:
-    orientation: 'vertical'
-    size_hint_x: 1
-    size_hint_y: None
-    height: "100dp"
-
-    MDTextField:
-        id: opravar_jmeno
-        text: 'jméno opravare'
-        pos_hint: {'center_x': .5, 'center_y': .9}
-
-    MDDropDownItem:
-        id: opravar_item
-        pos_hint: {'center_x': .5, 'center_y': .7}
-        size_hint_x: 1
-        text: 'Oprava'
-        on_release: self.parent.menu_zamereni.open()
-
 <OpravaContent>:
     orientation: 'vertical'
     size_hint_x: 1
@@ -46,4 +28,40 @@ BoxLayout:
     MDTextField:
         id: oprava_popis
         text: 'Popis opravy'
+        pos_hint: {'center_x': .5, 'center_y': .9}
+
+    MDDropDownItem:
+        id: model_item
         pos_hint: {'center_x': .5, 'center_y': .7}
+        size_hint_x: 1
+        text: 'Model'
+        on_release: self.parent.menu_modely.open()
+
+    MDDropDownItem:
+        id: opravar_item
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        size_hint_x: 1
+        text: 'Opravar'
+        on_release: self.parent.menu_opravari.open()    
+
+<ModelContent>:
+    orientation: 'vertical'
+    size_hint_x: 1
+    size_hint_y: None
+    height: "100dp"
+
+    MDTextField:
+        id: model_nazev
+        text: 'Nazev modelu'
+        pos_hint: {'center_x': .5, 'center_y': .7} 
+
+<OpravarContent>:
+    orientation: 'vertical'
+    size_hint_x: 1
+    size_hint_y: None
+    height: "100dp"
+
+    MDTextField:
+        id: opravar_jmeno
+        text: 'Jmeno opravare'
+        pos_hint: {'center_x': .5, 'center_y': .7}    

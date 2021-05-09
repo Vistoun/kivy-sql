@@ -1,7 +1,7 @@
 from kivy.uix.screenmanager import Screen
 from kivymd.app import MDApp
 from kivy.lang import Builder
-from modules.Opravari_ import Opravy
+from modules.opravari import Opravy
 
 class DatabaseScreen(Screen):
     pass

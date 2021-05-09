@@ -5,6 +5,8 @@ db = Database(dbtype='sqlite', username='root', password='', dbname='opravy.db')
 oprava = Oprava()
 oprava.popis = "Výměna displeje"
 oprava.cena = 1800
+oprava.model = "Apple iPhone 8"
+oprava.opravar = "Bořek Opravar"
 db.create_oprava(oprava)
 
 opravar = Opravar()

@@ -15,9 +15,9 @@ class Oprava(Base):
 
     id = Column(Integer, primary_key=True)
     popis = Column(Text)
-    opravar = Column(String, ForeignKey('opravari.id'))
+    opravar = Column(String, ForeignKey('opravari.jmeno'))
     time = Column(TIMESTAMP)
-    model = Column(Integer, ForeignKey('modely.id'))
+    model = Column(Integer, ForeignKey('modely.nazev'))
     cena = Column(Integer)
 
 
@@ -36,7 +36,6 @@ class Model(Base):
 
     id = Column(Integer, primary_key=True)
     nazev = Column(String(100), nullable=False)
-    znacka = Column(String(100), nullable=False)
     
 
 
@@ -158,3 +157,4 @@ class Database:
             return True
         except:
             return False
+            

@@ -240,7 +240,7 @@ class Opravy(BoxLayout):
         new_opravar_btn.icon = "plus"
         new_opravar_btn.icon_color = [0.9, 0.9, 0.9, 1]
         new_opravar_btn.text_color = [0.9, 0.9, 0.9, 1]
-        new_opravar_btn.md_bg_color = [0, 0.5, 0.8, 1]
+        new_opravar_btn.md_bg_color = [0, 0.2, 0.5, 1]
         new_opravar_btn.font_style = "Button"
         new_opravar_btn.pos_hint = {"center_x": .6}
         new_opravar_btn.on_release = self.on_create_opravar
